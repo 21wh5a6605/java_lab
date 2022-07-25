@@ -1,0 +1,14 @@
+ 3.Develop an applet in Java that displays a simple message.
+Develop an applet in Java that receives an integer in one text field, and computes its factorial Value and returns it in another text field, when the button named “Compute” is clicked.
+
+import java.awt.*;
+import java.applet.*;
+/*
+<applet code="Demo" width=300 height=200>
+</applet>
+*/
+public class Applet1 extends Applet {
+public void paint(Graphics g) {
+    g.drawString("Welcome to Goeduhub Technologies", 20, 20);
+}
+} 
