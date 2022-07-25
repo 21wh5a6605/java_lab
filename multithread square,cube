@@ -1,0 +1,83 @@
+5. Write a Java program that implements a multi-thread application that has three threads. First thread generates random integer every 1 second and if the value is even, second thread computes the square of the number and prints. If the value is odd, the third thread will print the value of cube of the number. 
+
+import java.util.Random;
+class Square extends Thread
+{
+	int num;
+	Square(int num)
+  {
+		this.num = num;
+  }
+	public void run() 
+  {
+		System.out.println("Square of "+num+"is "+num*num);
+		System.out.println();	
+   }
+}
+class Cube extends Thread
+{
+	int num;
+	Cube(int num)
+  {
+		this.num = num;
+    }
+	public void run()
+  {
+		System.out.println("Cube of "+num+" is "+num*num*num);
+		System.out.println();	}
+}
+class Rand implements Runnable
+{
+	public void run() 
+  {
+		Random r = new Random();
+		for(int i = 0;i<10;i++)
+    {
+			int ranint = r.nextInt(1000);
+			System.out.println("Number generated is "+ranint);
+			if(ranint%2 == 0)
+      {
+				Square s = new Square(ranint);
+				s.run();	
+        }
+			else {
+				Cube c = new Cube(ranint);
+				c.run();
+        }
+			try {
+				Thread.sleep(1000);
+        }
+			catch(Exception e) 
+      {
+				System.out.println(e);	
+        }
+		}
+	}
+}
+public class Test 
+{
+	public static void main(String[] args)
+  {
+		Rand rn = new Rand();
+		rn.run();
+	}
+}
+
+
+Output:
+Number generated is 17
+Cube of 17 is 4913
+Number generated is 505
+Cube of 505 is 128787625
+Number generated is 236
+Square of 236is 55696
+Number generated is 45
+Cube of 45 is 91125
+Number generated is 864
+Square of 864is 746496
+Number generated is 236
+Square of 236is 55696
+Number generated is 876
+Square of 876is 767376
+Number generated is 235
+Cube of 235 is 12977875
