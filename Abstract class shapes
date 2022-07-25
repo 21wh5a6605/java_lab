@@ -1,0 +1,33 @@
+8. Write a Java program to create an abstract class named Shape that contains two integers and an empty method named print Area ().
+Provide three classes named Rectangle, Triangle, and Circle such that each one of the classes extends the class Shape.
+Each one of the classes contains only the method print Area () that prints the area of the given shape.
+
+import java.util.Scanner;
+import java.io.*;
+abstract class Shape{
+    public int a;
+    public int b;
+    abstract void printArea(int a, int b);	}
+class Rectangle extends Shape{
+    void printArea(int a,int b){
+        System.out.println("Area of rectangle of length "+a+" breadth "+b+" is "+(a*b)+" units");	 } }
+class Triangle extends Shape{
+    void printArea(int a,int b){
+        System.out.println("Area of triangle of height "+a+" base "+b+" is "+(0.5*a*b)+" units");	} }
+class Circle extends Shape{
+    void printArea(int a,int b){
+        System.out.println("Area of circle of radius "+a+" is "+(3.14*a*a)+" units");	}	}
+public class Main{
+    public static void main(String[] args){
+        Rectangle r = new Rectangle();
+        Triangle t = new Triangle();
+        Circle c = new Circle();
+        r.printArea(4,3);
+        t.printArea(7,5);
+        c.printArea(4,0);
+    }	}
+Output:
+Area of rectangle of length 4 breadth 3 is 12 units
+Area of triangle of height 7 base 5 is 17.5 units
+Area of circle of radius 4 is 50.24 units
+
