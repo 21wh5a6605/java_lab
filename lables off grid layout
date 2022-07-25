@@ -1,0 +1,44 @@
+9.Suppose that a table named Table.txt is stored in a text file. The first line in the file is the header, 
+and the remaining lines correspond to rows in the table. The elements are separated by commas.
+Write a java program to display the table using Labels in Grid Layout.
+
+Progream:
+import java.util.*; 
+import java.awt.*;
+import javax.swing.*;
+class A extends JFrame {
+public A()
+{
+  setSize(400, 400); 
+  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+  GridLayout g = new GridLayout(0, 3);
+  setLayout(g); 
+  try 
+  {
+  FileInputStream fin = new
+  FileInputStream("C:\\Users\\User\\eclipse-workspace\\HashTab.txt");
+  Scanner sc = new Scanner(fin).useDelimiter(",");
+  String[] arrayList;
+  String a;
+  while (sc.hasNextLine())
+  { 
+    a = sc.nextLine(); arrayList = a.split(",");
+    for (String i : arrayList) {
+    add(new JLabel(i));	
+    }
+}
+} 
+catch (Exception ex) {
+}
+setDefaultLookAndFeelDecorated(true); 
+pack();
+setVisible(true);
+}
+}
+public class Week_9
+{
+public static void main(String[] args) 
+{ 
+  A a = new A();
+}
+}
